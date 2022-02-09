@@ -155,3 +155,11 @@
 [disabled] .noUi-handle {
   cursor: not-allowed;
 }
+/* .imgcont {
+  display: flex;
+  justify-content: "space-around";
+  float: left;
+  height: 20px;
+  width: 30px;
+  align-items: center;
+} */
