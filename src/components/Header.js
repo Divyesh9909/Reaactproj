@@ -25,9 +25,7 @@ export default function Header() {
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          Navbar
-        </a>
+        <a class="navbar-brand" href="#"></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -84,7 +82,7 @@ export default function Header() {
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
+              <a class="nav-link disabled"></a>
             </li>
           </ul>
           <a class="nav-link" href="#">
@@ -93,7 +91,7 @@ export default function Header() {
           </a>
 
           <a class="nav-link" href="#">
-            <Link to="/Login">Login</Link>
+            <Link to="/Registration">Registration</Link>
             <FaUserPlus />
           </a>
 

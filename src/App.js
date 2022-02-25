@@ -10,8 +10,10 @@ import Footer from "./components/Footer";
 import Men from "./components/Men";
 import Women from "./components/Women";
 import Kids from "./components/Kids";
-import Login from "./components/Login";
+import Registration from "./components/Registration";
 import Question from "./Cart";
+import Login from "./components/Login";
+
 function App() {
   return (
     <Router>
@@ -39,6 +41,9 @@ function App() {
           </Route>
           <Route path="/Question">
             <Question />
+          </Route>
+          <Route path="/Registration">
+            <Registration />
           </Route>
           <Route path="/Login">
             <Login />

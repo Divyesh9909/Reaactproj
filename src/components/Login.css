@@ -1,15 +1,3 @@
-/* .app {
-  font-family: sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: auto;
-  flex-direction: column;
-  gap: 20px;
-  height: 80vh;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: #f8f9fd;
-}
-
 input[type="text"],
 input[type="password"] {
   height: 25px;
@@ -35,10 +23,41 @@ input[type="submit"]:hover {
   justify-content: center;
 }
 
-.login-form {
+/* .login-form {
+  background-color: white;
+  padding: 3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+/* .form {
   background-color: white;
   padding: 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+.bgimage {
+  /* background-image: url("https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-image: no-repeat; */
+  background-color: #01ab8d;
+}
+
+.card-container.card {
+  max-width: 550px !important;
+  padding: 40px 40px;
+}
+
+.card {
+  background-color: #f7f7f7;
+  background-image: "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(102, 95, 95, 0.849);
+  -webkit-box-shadow: 0px 2px 2px rgba(83, 77, 77, 0.836);
+  box-shadow: 6px 6px 15px rgba(80, 77, 77, 0.452);
 }
 
 .list-container {
@@ -49,7 +68,12 @@ input[type="submit"]:hover {
   color: red;
   font-size: 12px;
 }
-
+/* .bgbox {
+  height: 100px;
+  width: 300px;
+  border: 1px solid blue;
+  background-color: blue;
+} */
 .title {
   font-size: 25px;
   margin-bottom: 20px;
@@ -60,7 +84,7 @@ input[type="submit"]:hover {
   flex-direction: column;
   gap: 8px;
   margin: 10px;
-} */
+}
 
 .App {
   text-align: center;
@@ -76,7 +100,7 @@ input[type="submit"]:hover {
 
 .input {
   font-size: larger;
-  padding: 5px;
+  padding: 2px;
   margin: 2px;
 }
 .btn {
@@ -96,8 +120,8 @@ input[type="submit"]:hover {
 
 .error {
   display: block;
-  background-color: red;
-  color: white;
+  background-color: #f7f7f7;
+  color: red;
   width: fit-content;
   height: 50px;
   padding: 5px;
