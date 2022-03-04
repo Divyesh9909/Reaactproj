@@ -2,6 +2,11 @@ import React from "react";
 import "./Product.css";
 import Colors from "./Colors";
 import DetailsThumb from "./DetailsThumb";
+import kidsdress from "../Assest/Images/kidsdress.jpg";
+import kidskurta from "../Assest/Images/kidskurta.jpg";
+import kidshirt from "../Assest/Images/kidshirt.jpg";
+import kidsoutfit from "../Assest/Images/kidsoutfit.jpg";
+import { Link } from "react-router-dom";
 
 class Product extends React.Component {
   state = {
@@ -9,12 +14,7 @@ class Product extends React.Component {
       {
         _id: "1",
         title: "Kids Clothes",
-        src: [
-          "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.esquire.com%2Fstyle%2Fmens-fashion%2Fg20686368%2Fbest-cheap-online-clothing-stores-for-men%2F&psig=AOvVaw0NjWHXEMWFjDByP90mBH5c&ust=1643196793208000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJC-pOT3zPUCFQAAAAAdAAAAABAD",
-          "https://www.upsieutoc.com/images/2020/06/27/img2.jpg",
-          "https://www.upsieutoc.com/images/2020/06/27/img3.jpg",
-          "https://www.upsieutoc.com/images/2020/06/27/img4.jpg",
-        ],
+        src: [kidskurta, kidsoutfit, kidsdress, kidshirt],
         description: "Raymond Shirts",
         content: "This is the Kids page.You can choose any product ",
         price: 25,
@@ -69,7 +69,9 @@ class Product extends React.Component {
                     tab={this.handleTab}
                     myRef={this.myRef}
                   />
-                  <button className="cart">Add to cart</button>
+                  <Link to="/Question">
+                    <button className="cart">Add to cart</button>
+                  </Link>
                 </div>
               </div>
             ))}

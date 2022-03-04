@@ -2,6 +2,11 @@ import React from "react";
 import "./Product.css";
 import Colors from "./Colors";
 import DetailsThumb from "./DetailsThumb";
+import image4 from "../Assest/Images/image4.jpg";
+import mendenim from "../Assest/Images/mendenim.jpg";
+import menshirt from "../Assest/Images/menshirt.jpg";
+import MenshirtFull from "../Assest/Images/MenshirtFull.jpg";
+import { Link } from "react-router-dom";
 
 class Product extends React.Component {
   state = {
@@ -10,10 +15,11 @@ class Product extends React.Component {
         _id: "1",
         title: "Men Clothes",
         src: [
-          "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-          "https://www.upsieutoc.com/images/2020/06/27/img2.jpg",
-          "https://www.upsieutoc.com/images/2020/06/27/img3.jpg",
-          "https://www.upsieutoc.com/images/2020/06/27/img4.jpg",
+          // "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
+          image4,
+          MenshirtFull,
+          mendenim,
+          menshirt,
         ],
         description: "Raymond Shirts",
         content: "This is the men page.You can choose any product ",
@@ -67,7 +73,9 @@ class Product extends React.Component {
                   tab={this.handleTab}
                   myRef={this.myRef}
                 />
-                <button className="cart">Add to cart</button>
+                <Link to="/Question">
+                  <button className="cart">Add to cart</button>
+                </Link>
               </div>
             </div>
           ))}
