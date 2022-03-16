@@ -10,16 +10,16 @@ import image6 from "../Assest/Images/image6.jpg";
 const slideImages = [
   {
     url: image4,
-    caption: "Slide 1",
+    // caption: "Slide 1",
   },
 
   {
     url: image1,
-    caption: "Slide 2",
+    // caption: "Slide 2",
   },
   {
     url: image3,
-    caption: "Slide 3",
+    // caption: "Slide 3",
   },
 ];
 const home = () => {

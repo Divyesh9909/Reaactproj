@@ -1,13 +1,13 @@
-import React from "react";
+// import React from "react";
 
-const Articles = () => {
-  return (
-    <div>
-      <h1> My Articles </h1>;
-    </div>
-  );
-};
-export default Articles;
+// const Articles = () => {
+//   return (
+//     <div>
+//       <h1> My Articles </h1>;
+//     </div>
+//   );
+// };
+// export default Articles;
 
 // import React from "react";
 // import {
@@ -142,3 +142,57 @@ export default Articles;
 // };
 
 // export default BlogPage;
+
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
+// import Product from "./Product";
+
+const Articles = ({}) => {
+  const url = "http://localhost:4000/Product";
+  const [products, setproducts] = useState({
+    loading: false,
+    data: null,
+    error: false,
+  });
+
+  useEffect(() => {
+    setproducts({
+      loading: false,
+      data: null,
+      error: false,
+    });
+    Axios.get(url)
+      .then((response) => {
+        setproducts({
+          loading: false,
+          data: response.data,
+          error: false,
+        });
+      })
+      .catch(() => {
+        setproducts({
+          loading: false,
+          data: null,
+          error: true,
+        });
+      });
+  }, [url]);
+
+  let content = null;
+
+  if (products.error) {
+    content = <p>There was an error please try again later.</p>;
+  }
+  if (products.data) {
+    content = products.data.map((Product, key) => <div>{Product.title}</div>);
+  }
+
+  return (
+    <div>
+      <h1> Selling Products </h1>
+
+      {content}
+    </div>
+  );
+};
+export default Articles;
