@@ -39,3 +39,40 @@
 .Registration {
   color: #61dafb;
 }
+
+/* Product Css */
+
+img {
+  height: 300px;
+  width: 350px;
+}
+
+.product-css {
+  display: grid;
+  gap: 0.5rem 0.5 rem;
+}
+
+@media (min-width: 990px) {
+  .product-css {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 990px) {
+  .product-css {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* WishList Heart Button CSS */
+.heart {
+  font-size: 35px;
+  color: rgb(182, 173, 173);
+  width: 70px;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.heart:hover {
+  color: rgb(192, 39, 39);
+}

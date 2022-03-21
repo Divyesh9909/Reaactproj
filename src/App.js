@@ -11,8 +11,9 @@ import Men from "./components/Men";
 import Women from "./components/Women";
 import Kids from "./components/Kids";
 import Registration from "./components/Registration";
-import Question from "./Cart";
+import Cart from "./Cart";
 import Login from "./components/Login";
+import SingleProductPage from "./components/SingleProductPage";
 
 function App() {
   return (
@@ -39,14 +40,17 @@ function App() {
           <Route path="/Kids">
             <Kids />
           </Route>
-          <Route path="/Question">
-            <Question />
+          <Route path="/Cart">
+            <Cart />
           </Route>
           <Route path="/Registration">
             <Registration />
           </Route>
           <Route path="/Login">
             <Login />
+          </Route>
+          <Route path="/SingleProductPage">
+            <SingleProductPage />
           </Route>
         </Switch>
         <Footer />

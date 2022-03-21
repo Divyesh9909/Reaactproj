@@ -5,24 +5,6 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa";
 export default function Header() {
   return (
-    // <header className="Header">
-    //     <nav className="Nav">
-    //         <Link to="/Home">
-    //             Home
-    //         </Link>
-
-    //         <Link to="/Articles">
-    //             Articles
-    //         </Link>
-
-    //         <Link to="/About">
-    //             About
-    //         </Link>
-
-    //         <button>Logout</button>
-    //     </nav>
-    // </header>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"></a>
@@ -84,9 +66,12 @@ export default function Header() {
             <li class="nav-item">
               <a class="nav-link disabled"></a>
             </li>
+            <a class="nav-link" href="#">
+              <Link to="/SingleProductPage">SingleProduct</Link>
+            </a>
           </ul>
           <a class="nav-link" href="#">
-            <Link to="/Question">Cart</Link>
+            <Link to="/Cart">Cart</Link>
             <FaShoppingCart />
           </a>
 

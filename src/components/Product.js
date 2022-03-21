@@ -73,7 +73,7 @@ class Product extends React.Component {
                   tab={this.handleTab}
                   myRef={this.myRef}
                 />
-                <Link to="/Question">
+                <Link to="/Cart">
                   <button className="cart">Add to cart</button>
                 </Link>
               </div>
