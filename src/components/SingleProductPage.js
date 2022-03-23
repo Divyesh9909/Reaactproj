@@ -7,94 +7,79 @@
 // }
 // export default SingleProductPage;
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Product.css";
-import Colors from "./Colors";
-import DetailsThumb from "./DetailsThumb";
+// import Colors from "./Colors";
+// import "../App.css";
+
+// import DetailsThumb from "./DetailsThumb";
 import womendress from "../Assest/Images/womendress.jpg";
-import womenfull from "../Assest/Images/womenfull.jpg";
-import womenkurti from "../Assest/Images/womenkurti.jpg";
-import womenonepiece from "../Assest/Images/womenonepiece.jpg";
+// import womenfull from "../Assest/Images/womenfull.jpg";
+// import womenkurti from "../Assest/Images/womenkurti.jpg";
+// import womenonepiece from "../Assest/Images/womenonepiece.jpg";
+import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
-class Product extends React.Component {
-  state = {
-    products: [
-      {
-        _id: "1",
-        title: "Women Clothes",
-        src: [
-          // "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-          womendress,
-          womenfull,
-          womenkurti,
-          womenonepiece,
-        ],
-        description: "Raymond Shirts",
-        content: "This is the Women page.You can choose any product ",
-        price: 28,
-        colors: ["red", "black", "crimson", "teal"],
-        count: 1,
-      },
-    ],
-    index: 0,
-  };
+const SingleProductPage = (pid) => {
+  const url = `http://localhost:4000/Product/${pid}`;
+  const [products, setproducts] = useState({
+    loading: false,
+    data: null,
+    error: false,
+  });
+  useEffect(() => {
+    setproducts({
+      loading: false,
+      data: null,
+      error: false,
+    });
+    if (pid) {
+      Axios.get(url)
+        .then((response) => {
+          setproducts((preState) => ({
+            ...preState,
 
-  myRef = React.createRef();
-
-  handleTab = (index) => {
-    this.setState({ index: index });
-    const images = this.myRef.current.children;
-    for (let i = 0; i < images.length; i++) {
-      images[i].className = images[i].className.replace("active", "");
+            data: response.data,
+          }));
+        })
+        .catch(() => {
+          setproducts({
+            loading: false,
+            data: null,
+            error: true,
+          });
+        });
     }
-    images[index].className = "active";
-  };
+  }, []);
 
-  componentDidMount() {
-    const { index } = this.state;
-    this.myRef.current.children[index].className = "active";
+  let content = null;
+
+  if (products.error) {
+    content = <p>There was an error please try again later.</p>;
   }
+  return (
+    <div className="app">
+      <div className="details" key={products.name}>
+        <div className="big-img">
+          <img src={womendress} alt="img" />
+        </div>
 
-  render() {
-    const { products, index } = this.state;
-    return (
-      <div>
-        <h1>Welcome to Single Product Page</h1>
-        <div>
-          <div className="app">
-            {products.map((item) => (
-              <div className="details" key={item._id}>
-                <div className="big-img">
-                  <img src={item.src[index]} alt="" />
-                </div>
-
-                <div className="box">
-                  <div className="row">
-                    <h2>{item.title}</h2>
-                    <span>${item.price}</span>
-                  </div>
-                  <Colors colors={item.colors} />
-
-                  <p>{item.description}</p>
-                  <p>{item.content}</p>
-
-                  <DetailsThumb
-                    images={item.src}
-                    tab={this.handleTab}
-                    myRef={this.myRef}
-                  />
-                  <Link to="/Cart">
-                    <button className="cart">Add to cart</button>
-                  </Link>
-                </div>
-              </div>
-            ))}
+        <div className="box">
+          <div className="row">
+            <h2>{products.title}</h2>
+            <span>$25{products.price}</span>
           </div>
+          <p>description: {products.description}</p>
+          <p>{products.content}</p>
+
+          <Link to="/Cart">
+            <button className="cart">Add to cart</button>
+          </Link>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default Product;
+export default SingleProductPage;

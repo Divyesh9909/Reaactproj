@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //import logo from './logo.svg';
 import Home from "./components/Home";
 import Article from "./components/Articles";
@@ -16,6 +16,12 @@ import Login from "./components/Login";
 import SingleProductPage from "./components/SingleProductPage";
 
 function App() {
+  const [setState] = useState;
+  const SingleProductPageId = (pid) => {
+    setState({
+      content: pid,
+    });
+  };
   return (
     <Router>
       <div className="App">
@@ -26,7 +32,7 @@ function App() {
             <Home />
           </Route>
           <Route path="/Articles">
-            <Article />
+            <Article SingleProductPageId={SingleProductPageId} />
           </Route>
           <Route path="/Product">
             <Product />
@@ -50,7 +56,10 @@ function App() {
             <Login />
           </Route>
           <Route path="/SingleProductPage">
-            <SingleProductPage />
+            <SingleProductPage
+              contentSetter={SingleProductPageId}
+              pid={setState.content}
+            />
           </Route>
         </Switch>
         <Footer />
@@ -58,5 +67,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;

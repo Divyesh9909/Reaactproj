@@ -7,7 +7,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { RiHeart3Fill } from "react-icons/ri";
 
-const Articles = ({}) => {
+const Articles = ({ SingleProductPageId }) => {
   const url = "http://localhost:4000/Product";
   const [products, setproducts] = useState({
     loading: false,
@@ -55,14 +55,21 @@ const Articles = ({}) => {
           <br />
           Category : {Product.category}
           <br />
-          <Link to="/SingleProductPage">
-            <a type="button" class="FaShoppingCart">
-              <FaShoppingCart color="Black" size={30} />
-            </a>
-            <a type="button" class="RiHeart3Fill">
-              <RiHeart3Fill className="heart" size={30} />
-            </a>
-          </Link>
+          <div
+            onClick={() => {
+              SingleProductPageId(content.id);
+              console.log("conntent", content.id);
+            }}
+          >
+            <Link to="/SingleProductPage">
+              <a type="button" class="FaShoppingCart">
+                <FaShoppingCart color="Black" size={30} />
+              </a>
+            </Link>
+          </div>
+          <a type="button" class="RiHeart3Fill">
+            <RiHeart3Fill className="heart" size={30} />
+          </a>
         </div>
       </div>
     ));

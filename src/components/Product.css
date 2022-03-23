@@ -92,3 +92,29 @@
     width: 50px;
   }
 }
+
+/* product screen */
+
+.cart-button:hover {
+  color: black;
+  background-color: tomato;
+}
+
+.review-section {
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.show-review {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+}
+
+.accordion-header {
+  background-color: grey;
+}
+.container.productdetail {
+  width: 600px;
+  margin-bottom: auto;
+}
