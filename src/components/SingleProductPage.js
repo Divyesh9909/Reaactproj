@@ -11,66 +11,72 @@ import React, { useState, useEffect } from "react";
 import "./Product.css";
 // import Colors from "./Colors";
 // import "../App.css";
-
-// import DetailsThumb from "./DetailsThumb";
-import womendress from "../Assest/Images/womendress.jpg";
-// import womenfull from "../Assest/Images/womenfull.jpg";
-// import womenkurti from "../Assest/Images/womenkurti.jpg";
-// import womenonepiece from "../Assest/Images/womenonepiece.jpg";
-import { Button, Card } from "react-bootstrap";
+// import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Axios from "axios";
+// import Axios from "axios";
 
-const SingleProductPage = (pid) => {
-  const url = `http://localhost:4000/Product/${pid}`;
+const SingleProductPage = ({ product }) => {
+  // console.log("pid ", pid);
+  // const url = `http://localhost:4000/Product/${pid}`;
   const [products, setproducts] = useState({
     loading: false,
     data: null,
     error: false,
   });
+  // useEffect(() => {
+  //   if (pid) {
+  //     Axios.get(url)
+  //       .then((response) => {
+  //         if (response) {
+  //           setproducts((preState) => ({
+  //             ...preState,
+
+  //             data: response.data,
+  //           }));
+  //         }
+  //       })
+  //       .catch(() => {
+  //         setproducts((preState) => ({
+  //           ...preState,
+
+  //           data: product,
+  //         }));
+  //       });
+  //   }
+  // }, []);
+
   useEffect(() => {
-    setproducts({
-      loading: false,
-      data: null,
-      error: false,
-    });
-    if (pid) {
-      Axios.get(url)
-        .then((response) => {
-          setproducts((preState) => ({
-            ...preState,
+    setproducts((preState) => ({
+      ...preState,
 
-            data: response.data,
-          }));
-        })
-        .catch(() => {
-          setproducts({
-            loading: false,
-            data: null,
-            error: true,
-          });
-        });
-    }
-  }, []);
+      data: product,
+    }));
+  }, [product]);
 
-  let content = null;
+  useEffect(() => {
+    console.log("local state products ", products);
+  }, [products]);
 
-  if (products.error) {
-    content = <p>There was an error please try again later.</p>;
-  }
   return (
     <div className="app">
-      <div className="details" key={products.name}>
-        <div className="big-img">
-          <img src={womendress} alt="img" />
-        </div>
+      <div className="details" key={products?.data?.title}>
+        <p>
+          <h1>{products?.data?.title}</h1>
+        </p>
 
+        <div className="big-img">
+          <img src={products?.data?.image} alt="img" />
+        </div>
         <div className="box">
           <div className="row">
             <h2>{products.title}</h2>
-            <span>$25{products.price}</span>
+            <span>
+              <h3> ₹ {products?.data?.price}</h3>
+            </span>
           </div>
-          <p>description: {products.description}</p>
+          <p>
+            <h1>Description:</h1> {products?.data?.description}
+          </p>
           <p>{products.content}</p>
 
           <Link to="/Cart">
@@ -83,3 +89,14 @@ const SingleProductPage = (pid) => {
 };
 
 export default SingleProductPage;
+
+// <div className="app">
+//       <div className="details" key={products?.data?.title}>
+//         <p>{products?.data?.title}</p>
+//         <div className="big-img">
+//           <img src={products?.data?.image} alt="img" />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };

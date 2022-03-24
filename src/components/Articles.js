@@ -57,8 +57,9 @@ const Articles = ({ SingleProductPageId }) => {
           <br />
           <div
             onClick={() => {
-              SingleProductPageId(content.id);
-              console.log("conntent", content.id);
+              console.log("Hello ", Product);
+              SingleProductPageId(Product);
+              console.log("conntent", Product.id);
             }}
           >
             <Link to="/SingleProductPage">
@@ -66,10 +67,11 @@ const Articles = ({ SingleProductPageId }) => {
                 <FaShoppingCart color="Black" size={30} />
               </a>
             </Link>
+
+            <a type="button" class="RiHeart3Fill">
+              <RiHeart3Fill className="heart" size={30} />
+            </a>
           </div>
-          <a type="button" class="RiHeart3Fill">
-            <RiHeart3Fill className="heart" size={30} />
-          </a>
         </div>
       </div>
     ));

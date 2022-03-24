@@ -16,11 +16,12 @@ import Login from "./components/Login";
 import SingleProductPage from "./components/SingleProductPage";
 
 function App() {
-  const [setState] = useState;
+  const [state, setState] = useState({});
+
   const SingleProductPageId = (pid) => {
-    setState({
-      content: pid,
-    });
+    if (pid) {
+      setState(pid);
+    }
   };
   return (
     <Router>
@@ -58,7 +59,7 @@ function App() {
           <Route path="/SingleProductPage">
             <SingleProductPage
               contentSetter={SingleProductPageId}
-              pid={setState.content}
+              product={state}
             />
           </Route>
         </Switch>
