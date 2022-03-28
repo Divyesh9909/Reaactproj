@@ -79,7 +79,7 @@ const Articles = ({ SingleProductPageId }) => {
 
   return (
     <div>
-      <h1>Selling Product</h1>
+      <h1>BestSellers Product</h1>
       <div className=" product-css">{content}</div>
     </div>
   );
