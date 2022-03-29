@@ -1,6 +1,6 @@
 import React from "react";
 import { FaYoutube, FaFacebook, FaGooglePlus, FaTwitter } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="footer">
@@ -85,33 +85,43 @@ const Footer = () => {
             <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
               <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
               <div classname="icons">
-                <a
-                  type="button"
-                  class="btn-floating btn-fb"
-                  href="www.facebook.com"
-                >
-                  <i class="fab fa-facebook-f">
-                    <FaFacebook color="blue" size={25} />
-                  </i>
-                </a>
-
-                <a type="button" class="btn-floating btn-tw">
-                  <i class="fab fa-twitter">
-                    <FaTwitter color="skyblue" size={25} />
-                  </i>
-                </a>
-
-                <a type="button" class="btn-floating btn-gplus">
-                  <i class="fab fa-google-plus-g">
-                    <FaGooglePlus color="red" size={25} />
-                  </i>
-                </a>
-
-                <a type="button" class="btn-floating btn-youtube">
-                  <i class="fab fa-youtube">
-                    <FaYoutube color="red" size={25} />
-                  </i>
-                </a>
+                <ul class="list-unstyled">
+                  <li>
+                    <Link
+                      type="button"
+                      class="btn-floating btn-fb"
+                      href="www.facebook.com"
+                    >
+                      <i class="fab fa-facebook-f">
+                        <FaFacebook color="blue" size={25} />
+                      </i>
+                    </Link>
+                  </li>
+                  <br />
+                  <li>
+                    <Link type="button" class="btn-floating btn-tw">
+                      <i class="fab fa-twitter">
+                        <FaTwitter color="skyblue" size={25} />
+                      </i>
+                    </Link>
+                  </li>
+                  <br />
+                  <li>
+                    <Link type="button" class="btn-floating btn-gplus">
+                      <i class="fab fa-google-plus-g">
+                        <FaGooglePlus color="red" size={25} />
+                      </i>
+                    </Link>
+                  </li>
+                  <br />
+                  <li>
+                    <Link type="button" class="btn-floating btn-youtube">
+                      <i class="fab fa-youtube">
+                        <FaYoutube color="red" size={25} />
+                      </i>
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
 

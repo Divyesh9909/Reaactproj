@@ -23,12 +23,16 @@ export default function Header() {
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">
-                <Link to="/Home">Home</Link>
+                <Link to="/Home" className="btn">
+                  Home
+                </Link>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <Link to="/Articles">Article</Link>
+                <Link to="/Articles" className="btn">
+                  Article
+                </Link>
               </a>
             </li>
             <li class="nav-item dropdown">
@@ -66,18 +70,18 @@ export default function Header() {
             <li class="nav-item">
               <a class="nav-link disabled"></a>
             </li>
-            <a class="nav-link" href="#">
+            {/* <a class="nav-link" href="#">
               <Link to="/SingleProductPage">SingleProduct</Link>
-            </a>
+            </a> */}
           </ul>
           <a class="nav-link" href="#">
             <Link to="/Cart">Cart</Link>
-            <FaShoppingCart />
+            <FaShoppingCart size={30} />
           </a>
 
           <a class="nav-link" href="#">
             <Link to="/Registration">Registration</Link>
-            <FaUserPlus />
+            <FaUserPlus size={30} />
           </a>
         </div>
       </div>

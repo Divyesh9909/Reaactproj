@@ -1,4 +1,4 @@
-import { Axios } from "axios";
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 // import { Link } from "react-router-dom";
@@ -6,7 +6,8 @@ import React, { useState, useEffect } from "react";
 
 const Cart = ({ pid }) => {
   // console.log("pid ", pid);
-  const url = `http://localhost:4000/Cart/${"pid"}`;
+  const url = `http://localhost:4000/Cart/${pid}`;
+
   const [products, setproducts] = useState({
     loading: false,
     data: null,
@@ -14,39 +15,17 @@ const Cart = ({ pid }) => {
   });
 
   useEffect(() => {
-    setproducts(
-      {
-        loading: false,
-        data: null,
-        error: false,
-      },
-      []
-    );
-    Axios.post("url")
-      .then((response) => {
-        if (response) {
-          setproducts((preState) => ({
-            ...preState,
+    console.log("checking if api call is happening , ", pid && pid);
 
-            data: response.data,
-          }));
-        }
+    axios
+      .post(url, {})
+      .then(function (response) {
+        console.log("response ", response);
       })
-      .catch(() => {
-        setproducts((preState) => ({
-          ...preState,
-
-          data: pid,
-        }));
+      .catch(function (error) {
+        console.log("error ", error);
       });
   }, []);
-  // useEffect(() => {
-  //   setproducts((preState) => ({
-  //     ...preState,
-
-  //     data: pid,
-  //   }));
-  // }, [pid]);
 
   return (
     <div className="app">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 //import logo from './logo.svg';
 import Home from "./components/Home";
 import Article from "./components/Articles";
@@ -16,24 +16,35 @@ import Login from "./components/Login";
 import SingleProductPage from "./components/SingleProductPage";
 
 function App() {
-  const [state, setState] = useState({});
+  let pId;
+
+  const [product, setproduct] = useState(null);
 
   const SingleProductPageId = (pid) => {
     if (pid) {
-      setState(pid);
+      pId = pid;
+      console.log("pid ", pid);
     }
   };
+
+  useEffect(() => {
+    console.log("Product 1234", product);
+  }, [product]);
+
   return (
     <Router>
       <div className="App">
         <Header />
 
         <Switch>
-          <Route path="/Home">
+          <Route path={["/Home"]}>
             <Home />
           </Route>
           <Route path="/Articles">
-            <Article SingleProductPageId={SingleProductPageId} />
+            <Article
+              SingleProductPageId={SingleProductPageId}
+              setproduct={setproduct}
+            />
           </Route>
           <Route path="/Product">
             <Product />
@@ -48,7 +59,7 @@ function App() {
             <Kids />
           </Route>
           <Route path="/Cart">
-            <Cart />
+            <Cart pId={pId} />
           </Route>
           <Route path="/Registration">
             <Registration />
@@ -56,10 +67,10 @@ function App() {
           <Route path="/Login">
             <Login />
           </Route>
-          <Route path="/SingleProductPage">
+          <Route path="/SingleProductPage/:pid">
             <SingleProductPage
-              contentSetter={SingleProductPageId}
-              product={state}
+              SingleProductPageId={SingleProductPageId}
+              product={product}
             />
           </Route>
         </Switch>
