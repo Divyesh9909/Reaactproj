@@ -70,7 +70,7 @@ export default function Form(req) {
     } else {
       setSubmitted(true);
       dispatch(RegistrationFunction({ name, email, password, phno }));
-      history.push("./Login");
+      // history.push("./Login");
       setError(false);
     }
   };

@@ -28,52 +28,53 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("Product 1234", product);
+    // console.log("Product 1234", product);
   }, [product]);
 
   return (
     <Router>
       <div className="App">
         <Header />
-
-        <Switch>
-          <Route path={["/Home"]}>
-            <Home />
-          </Route>
-          <Route path="/Articles">
-            <Article
-              SingleProductPageId={SingleProductPageId}
-              setproduct={setproduct}
-            />
-          </Route>
-          <Route path="/Product">
-            <Product />
-          </Route>
-          <Route path="/Men">
-            <Men />
-          </Route>
-          <Route path="/Women">
-            <Women />
-          </Route>
-          <Route path="/Kids">
-            <Kids />
-          </Route>
-          <Route path="/Cart">
-            <Cart pId={pId} />
-          </Route>
-          <Route path="/Registration">
-            <Registration />
-          </Route>
-          <Route path="/Login">
-            <Login />
-          </Route>
-          <Route path="/SingleProductPage/:pid">
-            <SingleProductPage
-              SingleProductPageId={SingleProductPageId}
-              product={product}
-            />
-          </Route>
-        </Switch>
+        <div style={{ minHeight: "70vh" }}>
+          <Switch>
+            <Route exact path={["/", "/Home"]}>
+              <Home />
+            </Route>
+            <Route path="/Articles">
+              <Article
+                SingleProductPageId={SingleProductPageId}
+                setproduct={setproduct}
+              />
+            </Route>
+            <Route path="/Product">
+              <Product />
+            </Route>
+            <Route path="/Men">
+              <Men />
+            </Route>
+            <Route path="/Women">
+              <Women />
+            </Route>
+            <Route path="/Kids">
+              <Kids />
+            </Route>
+            <Route path="/Cart">
+              <Cart pId={pId} />
+            </Route>
+            <Route path="/Registration">
+              <Registration />
+            </Route>
+            <Route path="/Login">
+              <Login />
+            </Route>
+            <Route path="/SingleProductPage/:pid">
+              <SingleProductPage
+                SingleProductPageId={SingleProductPageId}
+                product={product}
+              />
+            </Route>
+          </Switch>
+        </div>
         <Footer />
       </div>
     </Router>
