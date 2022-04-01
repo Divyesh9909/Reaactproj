@@ -17,7 +17,7 @@ const SingleProductPage = ({ product }) => {
     error: false,
   });
 
-  let CartProducts = () => {
+  let CartProducts = (product) => {
     let LocalStorageCart = [];
 
     LocalStorageCart = JSON.parse(localStorage.getItem("Cart")) || [];
@@ -26,31 +26,31 @@ const SingleProductPage = ({ product }) => {
   };
 
   useEffect(() => {
-    setproducts(
-      {
-        loading: false,
-        data: null,
-        error: false,
-      },
-      []
-    );
     if (pid) {
       Axios.get(url)
         .then((response) => {
+          console.log("Where is Response", response);
           setproducts((preState) => ({
             ...preState,
 
-            data: response.data,
+            data: response.data[0],
           }));
         })
-        .catch(() => {
-          setproducts({
-            loading: false,
-            data: null,
-            error: false,
-          });
+        .catch((error) => {
+          // console.log("Where Is Error", error);
+          // setproducts({
+          //   loading: false,
+          //   data: null,
+          //   error: false,
+          // });
         });
     }
+
+    setproducts((preState) => ({
+      ...preState,
+
+      data: product,
+    }));
   }, []);
 
   let content = null;
@@ -64,25 +64,27 @@ const SingleProductPage = ({ product }) => {
         <p>{/* <h1>{product?.title}</h1> */}</p>
 
         <div className="details big-img">
-          <img src={product?.image} alt="img" />
+          <img src={products?.data?.image} alt="img" />
         </div>
         <div className="box">
           <div className="row">
             <h2>{product?.title}</h2>
             <span>
-              <h3> ₹ {product?.price}</h3>
+              <h3> ₹ {products?.data?.price}</h3>
             </span>
           </div>
           <p>
-            <h1>Description:</h1> {product?.description}
+            <h1>Description:</h1> {products?.data?.description}
           </p>
-          <p>{product?.content}</p>
+          <p>{products?.data?.content}</p>
 
           <Link to="/Cart">
             <button
               className="cart"
               // onClick={localStorage.setItem("cart", JSON.stringify(product))}
-              onClick={CartProducts}
+              onClick={() => {
+                CartProducts(products?.data);
+              }}
             >
               Add to cart
             </button>

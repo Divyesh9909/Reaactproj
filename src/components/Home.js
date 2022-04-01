@@ -7,7 +7,6 @@ import image1 from "../Assest/Images/image1.jfif";
 import image3 from "../Assest/Images/image3.jfif";
 //import image2 from "../image2.png";
 import image6 from "../Assest/Images/image6.jpg";
-import Test from "./Test";
 
 const slideImages = [
   {
@@ -78,7 +77,6 @@ const home = () => {
           </p>
         </div>
       </div>
-      <Test />
     </div>
   );
 };
