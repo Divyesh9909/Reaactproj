@@ -168,7 +168,6 @@ export default function Form(req) {
       </form>
     </div>
   );
-  dispatch(LoginFunction({ email, password }));
   return (
     <div className="bgcolor">
       <div className="card card-container">

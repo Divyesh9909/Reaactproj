@@ -34,6 +34,13 @@ export default function Header() {
                 </Link>
               </span>
             </li>
+            <li class="nav-item">
+              <span class="nav-link">
+                <Link to="/About Us" className="btn">
+                  About
+                </Link>
+              </span>
+            </li>
             <li class="nav-item dropdown">
               <Link
                 class="nav-link dropdown-toggle"

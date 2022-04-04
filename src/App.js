@@ -13,6 +13,8 @@ import Kids from "./components/Kids";
 import Registration from "./components/Registration";
 import Cart from "./Cart";
 import Login from "./components/Login";
+import AboutPage from "./components/About";
+import Checkout from "./components/Checkout";
 import SingleProductPage from "./components/SingleProductPage";
 
 function App() {
@@ -66,6 +68,12 @@ function App() {
             </Route>
             <Route path="/Login">
               <Login />
+            </Route>
+            <Route path="/Checkout">
+              <Checkout />
+            </Route>
+            <Route path="/AboutPage">
+              <AboutPage />
             </Route>
             <Route path="/SingleProductPage/:pid">
               <SingleProductPage

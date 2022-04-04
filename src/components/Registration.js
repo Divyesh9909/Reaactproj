@@ -50,7 +50,7 @@ export default function Form(req) {
 
     var pattern =
       /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-    console.log("email", pattern.test(email));
+    // console.log("email", pattern.test(email));
     if (!name) {
       setError("Name is Required");
     } else if (name.length <= 2) {
@@ -74,7 +74,7 @@ export default function Form(req) {
       setError(false);
     }
   };
-  console.log("UserData", name);
+  // console.log("UserData", name);
   // Showing success message
   const successMessage = () => {
     return (

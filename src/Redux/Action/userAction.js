@@ -23,15 +23,16 @@ export const UserLoginAction = (user) => {
 //     type: "LOG_OUT",
 //   };
 // };
+// console.log("Where is Route");
 export const RegistrationFunction = (UserData) => async (dispatch) => {
-  const { data } = await Axios.post(`${BASE_URL}/sign_up`, {
-    data: UserData,
+  const { data } = await Axios.post(`${BASE_URL}/signup`, {
+    data: { ...UserData },
   });
   dispatch(UserRegisterAction(data));
 };
-
+// console.log("Where is Route".signup);
 export const LoginFunction = (UserData) => async (dispatch) => {
-  const { data } = await Axios.post(`${BASE_URL}/log_in`, {
+  const { data } = await Axios.post(`${BASE_URL}/login`, {
     data: UserData,
   });
   dispatch(UserLoginAction(data));
