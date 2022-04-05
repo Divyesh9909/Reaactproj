@@ -3,6 +3,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa";
+import logo from "../Assest/Images/logo.png";
 export default function Header() {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,6 +21,14 @@ export default function Header() {
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <span class="nav-link">
+                <Link to="/">
+                  <img className="img-fluid " src={logo} alt="Logo" />
+                </Link>
+              </span>
+            </li>
+
             <li class="nav-item">
               <Link class="nav-link active" aria-current="page">
                 <Link to="/Home" className="btn">
@@ -77,7 +86,7 @@ export default function Header() {
               <Link class="nav-link disabled"></Link>
             </li>
             {/* <a class="nav-link">
-              <Link to="/SingleProductPage">SingleProduct</Link>
+                <Link to="/SingleProductPage">SingleProduct</Link>
             </a> */}
           </ul>
           <span class="nav-link">
@@ -107,98 +116,49 @@ export default function Header() {
 //   </button>
 // </form>;
 
-// ----------------------------------------------
+// ==-----------Dropdown currentUser-------
 
-// import React, { Component } from "react";
-// // import { Link } from "react-router-dom";
-// // import {
-// //   MDBNavbar,
-// //   MDBNavbarBrand,
-// //   MDBNavbarNav,
-// //   MDBNavItem,
-// //   MDBNavLink,
-// //   MDBNavbarToggler,
-// //   MDBCollapse,
-// //   MDBDropdown,
-// //   MDBDropdownToggle,
-// //   MDBDropdownMenu,
-// //   MDBDropdownItem,
-// //   MDBIcon,
-// // } from "mdbreact";
-// import { BrowserRouter as Router } from "react-router-dom";
+// {
+//   currentUser ? (
+//     <div className="dropdown">
+//       <div>
+//         <button className="dropbtn">My Account</button>
+//         {/* <li className="nav-item"> */}
+//         <div className="dropdown-content">
+//           <div className="child">
+//             <Link to={"/profile"} className="nav-link">
+//               {/* {currentUser.username} */}current user
+//             </Link>
+//             <Link
+//               to={"/login"}
+//               className="nav-link"
+//               // onClick={this.logOut}
+//             >
+//               LogOut
+//               <FaUserMinus />
+//             </Link>
+//           </div>
+//           {/* </li> */}
+//         </div>
+//       </div>
+//     </div>
+//   ) : (
+//     // </div>
 
-// class Header extends Component {
-//   state = {
-//     isOpen: false,
-//   };
+//     <div className="navbar-nav ml-auto">
+//       <li className="nav-item">
+//         <Link to={"/login"} className="nav-link">
+//           Login
+//           <SiGnuprivacyguard />
+//         </Link>
+//       </li>
 
-//   toggleCollapse = () => {
-//     this.setState({ isOpen: !this.state.isOpen });
-//   };
-
-//   render() {
-//     return (
-//       <Router>
-//         {/* <Navbar color="default-color" dark expand="md"> */}
-//         <NavbarBrand>
-//           <strong className="white-text">Navbar</strong>
-//         </NavbarBrand>
-//         <NavbarToggler onClick={this.toggleCollapse} />
-//         {/* <Collapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar> */}
-//         <NavbarNav left>
-//           <NavItem active>
-//             <NavLink to="/home">Home</NavLink>
-//           </NavItem>
-//           <NavItem>
-//             <NavLink to="/Articales">Features</NavLink>
-//           </NavItem>
-//           <NavItem>
-//             <NavLink to="/products">Pricing</NavLink>
-//           </NavItem>
-//           <NavItem>
-//             <Dropdown>
-//               <DropdownToggle nav caret>
-//                 <div className="d-none d-md-inline">Dropdown</div>
-//               </DropdownToggle>
-//               <DropdownMenu className="dropdown-default">
-//                 <DropdownItem href="/Women">Action</DropdownItem>
-//                 <DropdownItem href="/Men">Another Action</DropdownItem>
-//                 <DropdownItem href="/kids">Something else here</DropdownItem>
-//                 <DropdownItem href="#!">Something else here</DropdownItem>
-//               </DropdownMenu>
-//             </Dropdown>
-//           </NavItem>
-//         </NavbarNav>
-//         {/* <NavbarNav right> */}
-//         <NavItem>
-//           <NavLink className="waves-effect waves-light" to="#!">
-//             <Icon fab icon="twitter" />
-//           </NavLink>
-//         </NavItem>
-//         <NavItem>
-//           <NavLink className="waves-effect waves-light" to="#!">
-//             <Icon fab icon="google-plus-g" />
-//           </NavLink>
-//         </NavItem>
-//         {/* <NavItem> */}
-//         <Dropdown>
-//           <DropdownToggle nav caret>
-//             <Icon icon="user" />
-//           </DropdownToggle>
-//           <DropdownMenu className="dropdown-default">
-//             <DropdownItem href="#!">Action</DropdownItem>
-//             <DropdownItem href="#!">Another Action</DropdownItem>
-//             <DropdownItem href="#!">Something else here</DropdownItem>
-//             <DropdownItem href="#!">Something else here</DropdownItem>
-//           </DropdownMenu>
-//         </Dropdown>
-//         {/* <NavItem> */}
-//         {/* </NavbarNav> */}
-//         {/* </Collapse> */}
-//         {/* </Navbar> */}
-//       </Router>
-//     );
-//   }
+//       <li className="nav-item">
+//         <Link to={"/Registration"} className="nav-link">
+//           Sign Up
+//           <FaUserPlus />
+//         </Link>
+//       </li>
+//     </div>
+//   );
 // }
-
-// export default Header;

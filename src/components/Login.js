@@ -87,6 +87,7 @@ import ReactDOM from "react-dom";
 import { LoginFunction } from "../Redux/Action/userAction";
 import { useDispatch } from "react-redux";
 import "./Login.css";
+import { useHistory } from "react-router-dom";
 
 export default function Form(req) {
   const [errorMessages] = useState({});
@@ -110,7 +111,7 @@ export default function Form(req) {
     setSubmitted(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     var pattern =
@@ -124,17 +125,32 @@ export default function Form(req) {
     } else if (!password) {
       setError("Password is Required");
     } else if (password.length <= 4) {
-      setError("Password must be atleast 4 char");
+      setError("InCorrect Password");
     } else {
       setSubmitted(true);
-      dispatch(LoginFunction({ email, password }));
-      setError(false);
+      const ourRes = await dispatch(LoginFunction({ email, password }));
+      if (ourRes) {
+        historyObj.push("/Home");
+        setError(false);
+      }
     }
   };
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
+  // const renderErrorMessage = (name) =>
+  //   name === errorMessages.name && (
+  //     <div className="error">{errorMessages.message}</div>
+  //   );
+  const errorMessage = () => {
+    return (
+      <div
+        className="error"
+        style={{
+          display: error,
+        }}
+      >
+        <h1>{error}</h1>
+      </div>
     );
+  };
 
   // JSX code for login form
   const renderForm = (
@@ -146,10 +162,11 @@ export default function Form(req) {
             onChange={handleEmail}
             type="text"
             name="email"
+            value={email}
             placeholder="Enter Your Email"
-            required
+            // required
           />
-          {renderErrorMessage("email")}
+          {/* {renderErrorMessage("email")} */}
         </div>
         <div className="input-container">
           <label>Password </label>
@@ -157,10 +174,11 @@ export default function Form(req) {
             onChange={handlePassword}
             type="password"
             name="pass"
+            value={password}
             placeholder="Enter Your Password"
-            required
+            // required
           />
-          {renderErrorMessage("pass")}
+          {/* {renderErrorMessage("pass")} */}
         </div>
         <div className="button-container">
           <input type="submit" />
@@ -168,11 +186,17 @@ export default function Form(req) {
       </form>
     </div>
   );
+  let historyObj = useHistory();
+
   return (
     <div className="bgcolor">
       <div className="card card-container">
         <div className="login-form">
           <div className="title">Sign In</div>
+          <div className="messages">
+            {errorMessage()}
+            {/* {successMessage()} */}
+          </div>
 
           {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
         </div>

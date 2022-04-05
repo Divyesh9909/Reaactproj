@@ -32,8 +32,12 @@ export const RegistrationFunction = (UserData) => async (dispatch) => {
 };
 // console.log("Where is Route".signup);
 export const LoginFunction = (UserData) => async (dispatch) => {
+  console.log("LoginFunction is called ");
   const { data } = await Axios.post(`${BASE_URL}/login`, {
     data: UserData,
   });
+  // console.log("UserData ", data);
   dispatch(UserLoginAction(data));
+  localStorage.setItem("user", JSON.stringify(data.token));
+  return data;
 };

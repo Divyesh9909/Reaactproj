@@ -84,7 +84,7 @@ export default function Form(req) {
           display: submitted ? "" : "none",
         }}
       >
-        <h1>User {name} successfully registered!!</h1>
+        <h1>Successfully Registered!!</h1>
       </div>
     );
   };
@@ -161,3 +161,5 @@ export default function Form(req) {
     </div>
   );
 }
+
+// User {name}

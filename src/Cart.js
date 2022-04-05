@@ -31,12 +31,25 @@ const Cart = ({ CartProducts, pid }) => {
   const decreaseCount = () => {
     return setCount(count - 1);
   };
+  let CartItem = [];
+  let CartItemId = [];
 
   useEffect(() => {
-    setuserCartDataFromLocalStorage(
-      JSON.parse(localStorage.getItem("Cart")) || []
-    );
-  }, [ParemId]);
+    const LocalStorageData = JSON.parse(localStorage.getItem("Cart")) || [];
+
+    LocalStorageData.map((Cart) => {
+      if (CartItemId.indexOf(Cart.id) < 0) {
+        Cart["QTY"] = 1;
+        CartItemId.push(Cart.id);
+        CartItemId.push(Cart);
+      } else {
+        const tempIndexOfCurrrentItem = CartItemId.indexOf(Cart.id);
+        CartItem[tempIndexOfCurrrentItem].qty += 1;
+        CartItem[tempIndexOfCurrrentItem].price += Cart.price;
+      }
+    });
+    setuserCartDataFromLocalStorage(CartItem);
+  }, []);
 
   const removePurchasedPFromCart = (paramId) => {
     const LocalStorageCart = JSON.parse(localStorage.getItem("Cart")) || [];
